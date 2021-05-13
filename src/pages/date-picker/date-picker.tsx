@@ -7,8 +7,7 @@ export default function DatePicker(): JSX.Element {
     console.log('My-Calendar-Rendered')
     return (
         <div>
-            <Calendar></Calendar>
-            s
+            <Calendar></Calendar>            
         </div>
     )
 }
