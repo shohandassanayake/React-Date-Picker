@@ -1,0 +1,119 @@
+.month-out-day{
+    opacity: 0.3
+}
+
+// .month-in-day:hover{
+//     height: 76%;
+//     width: 80%;
+    
+//     background: #ccc;
+//     border: 1px solid #ccc;
+//     border-radius: 10vw;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.cell-inner{
+    height: 76%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.working{
+    background: #bfd2e4;
+    border-radius: 50%;
+}
+
+.holiday{
+    background: #f8536b;
+    border-radius: 15%;
+}
+
+.absence{
+    background: #f9c206;
+    border-radius: 15%;
+}
+
+.working-absence{
+    background: linear-gradient( 
+        -45deg, #f9c206 50%, #bfd2e4 50% );
+    border-radius: 50%;
+}
+
+.working-holiday{
+    background: linear-gradient( 
+        -45deg,#f8536b 50%, #bfd2e4 50% );
+    border-radius: 50%;
+}
+
+.partial-holiday{
+    background: linear-gradient( 
+        -45deg, #f8536b  50%, white 50% );
+    border-radius: 15%;
+}
+
+.partial-absence{
+    background: linear-gradient( 
+        -45deg, #f9c206 50%, white 50% );
+    border-radius: 15%;
+}
+
+.working-absence-holiday{
+    
+    border-radius: 50%;
+    border-right-color: #f8536b;
+    border-top-color: #f9c206;
+    border-bottom-color: #f8536b;
+    border-left-color: #bfd2e4;
+    border-width: 5.45vw;
+    border-style: solid;
+    height: 0px;
+    width: 0px;
+    /* To rotate */
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+      
+    .working-absence-holiday::before {
+        display: block;
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-top-color: #f9c206;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-width: 5.45vw;
+        border-style: solid;
+        /* To ratate */
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
+      
+    .working-absence-holiday::after {
+        display: block;
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: #bfd2e4;
+        border-width: 5.45vw;
+        border-style: solid;
+        /* To ratate */
+        -webkit-transform: rotate(-30deg);
+        -moz-transform: rotate(-30deg);
+        -o-transform: rotate(-30deg);
+        -ms-transform: rotate(-30deg);
+        transform: rotate(-30deg);
+    }

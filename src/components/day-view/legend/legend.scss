@@ -1,0 +1,16 @@
+.legend-container{
+    display: flex;
+    justify-content: center; 
+    padding: 2vw 0vw;
+    font-size: 3vw;
+    
+    .item  {
+        display:flex;        
+
+        .circle {            
+            height: 4vw;
+            width: 4vw;
+            margin: 0vw 1vw 0vw 4vw;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+.day-view{
+    overflow: hidden;   
+    animation: 0.3s ease-out 0s 1 scaleOutFromcenter; 
+    
+
+    .day-header-row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2vw;
+
+        .day-header{
+            display : flex;
+            justify-content: center;
+            align-items: center;      
+            width: 14vw;
+            font-size: 4vw;
+            text-align: center;       
+        }
+
+        div{
+            color: #ccc;
+            font-weight: bold;   
+        }
+    }
+
+     .days{        
+         font-size: 4vw;    
+
+        .rows{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .cell{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 14vw;
+                width: 14vw; 
+                text-align: center;
+                
+            }
+        }
+    }
+}
+
+.day-view:active{
+    animation: 0.3s ease-out 0s 1 scaleOutFromcenter;
+}
+
+@keyframes leftToRightSlide {
+    
+    100% {transform: translateX(-100%);}
+  }
+
+  @keyframes rightToLeftSlide  {
+    100%   {transform: translateX(100%); }
+    
+  }
+
+
+  @keyframes scaleOutFromcenter {
+    0% {
+      transform: scale(0.3);
+    }
+    100% {
+      transform: scale(1);
+    }
+}

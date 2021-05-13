@@ -1,0 +1,36 @@
+.toolbar-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 6vw;
+    border-bottom: 1px solid #9c9c9c;
+
+    .btn-prev{
+        width : 10%;       
+    }
+
+    .date{
+        width: 60%;
+        display:flex;
+        justify-content: center; 
+    }
+    .month{
+        font-size: 6vw;
+        font-weight: bold;
+        padding: 2vw 0vw;        
+    }
+
+    .month-hide{
+        display:none;
+    }
+
+    .year{
+        font-size: 6vw;
+        color: #00a1ff;
+        padding: 2vw 0vw;
+    }
+    .btn-next{
+        width : 10%;
+    }
+}
