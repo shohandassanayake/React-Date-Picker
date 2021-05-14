@@ -1,6 +1,6 @@
  import React from 'react';
-// import BackIcon from '../../assets/images/back.svg';
-// import NextIcon from '../../assets/images/next.svg';
+import BackIcon from '../../assets/images/back.svg';
+import NextIcon from '../../assets/images/next.svg';
 
 import './calendar-nav.scss'
 
@@ -13,8 +13,8 @@ export default function NavHeader(props): JSX.Element {
     console.log('Toolbar-Header-Rendered')
 
     let year = props.viewType === ViewType.year ? CalendarUtil.getYearsLabel(props.year) :  props.year;
-    // let month = DateUtil.formatDateObj(props.date, 'LLLL');
-let month = 'May'
+    let month = CalendarUtil.getMonthLongName(props.date);
+
     const onViewChange = (ViewType) => {
         props.onViewChange(ViewType)
     }
@@ -51,7 +51,7 @@ let month = 'May'
         <div className='toolbar-header'>
             <div className='btn-prev' onClick={onPreviousClick}>
                 {/* <FontAwesomeIcon icon="angle-left"></FontAwesomeIcon> */}
-                {/* <BackIcon></BackIcon> */}
+                <BackIcon/>
             </div> 
             <div className='date'>
                 <div className={`month ${props.viewType== ViewType.year ? 'month-hide' : ''}`}
@@ -60,8 +60,10 @@ let month = 'May'
             </div>
             {/* <div className='year'></div> */}
             <div className='btn-next' onClick={onNextClick}>
+                <NextIcon></NextIcon>
                 {/* <FontAwesomeIcon icon="angle-right"></FontAwesomeIcon> */}
             </div>
         </div>          
     )    
 }
+
