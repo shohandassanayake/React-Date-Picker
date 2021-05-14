@@ -2,15 +2,16 @@ import CalendarData, { DayRow } from './models/calendar-picker-data';
 
 const dayTitleShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 const dayTitleShortCap = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
-const MonthsTitle =['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-const MonthsTitleShort =['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const dayTitle = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const monthsTitle =['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const monthsTitleShort =['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const getHeadersForCalendar = (startDayOfWeek : number) => {
     return dayTitleShortCap.slice(startDayOfWeek).concat(dayTitleShortCap.slice(0, startDayOfWeek))
 }
 
 const getMonthsForCalendar = () => {
-    return MonthsTitleShort;
+    return monthsTitleShort;
 }
 
 const getYearsForCalendar = (year) => {
@@ -82,17 +83,70 @@ const getEndDayOfMonth = (date : Date) => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0);
 }
 
+const getDayShortName = (date: Date) => {
+    return dayTitleShort[date.getDay()];
+}
+
+const getDayLongName = (date: Date) => {
+    return dayTitle[date.getDay()];
+}
+
 const getMonthShortName = (date: Date) => {
-    return MonthsTitleShort[date.getDay()];
+    return monthsTitleShort[date.getMonth()];
 }
 
 const getMonthLongName = (date: Date) => {
-    return MonthsTitle[date.getDay()];
+    return monthsTitle[date.getMonth()];
 }
 
 const getYear = (date: Date) => {
     return date.getFullYear().toString();
 }
+
+const formatDate = (date : Date, format : string) => {   
+
+    var letters = format.split('');
+    var letterGroups = [];
+    var group =letters[0];
+    var formatedDate = ''
+    for(var i = 0; i < letters.length; i++){
+
+        if(letters[i + 1] && letters[i] === letters[i+1]){
+            group = group + letters[i + 1]
+        }
+        else{
+            //letterGroups.push(group);
+            formatedDate = formatedDate + getDateFormatValue(date, group);
+            group = letters[i + 1] ? letters[i + 1] : '';
+        }
+    }
+    
+    return formatedDate;
+}
+
+const getDateFormatValue = (date : Date, formatVal : string) => {
+    switch(formatVal){
+        case 'dd':
+            return ('0' + date.getDate()).slice(-2);
+        case 'ddd':
+            return getDayShortName(date);
+        case 'dddd':
+            return getDayLongName(date);
+        case 'MM':
+            return ('0' + date.getMonth()).slice(-2); 
+        case 'MMM':
+            return getMonthShortName(date);
+        case 'MMMM':
+            return getMonthLongName(date);
+        case 'yyyy':
+            return date.getFullYear();   
+        case '/':
+        case '-':
+            return formatVal;  
+
+    }
+}
+
 
 
 
@@ -110,4 +164,5 @@ export default {
     getMonthShortName,
     getMonthLongName,
     getYear,
+    formatDate
 }
