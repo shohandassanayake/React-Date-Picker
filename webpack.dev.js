@@ -47,7 +47,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png)$/,
         loader: 'file-loader', 
         options : {
           name: "[name][hash].[ext]",
@@ -57,47 +57,27 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
-      },           
-     ]
-    },
-    plugins: [
+        use: ['@svgr/webpack'],
+      }       
+    ]
+  },
+  plugins: [
       new MiniCssExtractPlugin({
         filename: '[name].[hash].css'
       }),
       new HtmlWebpackPlugin({
         template: './src/index.html'
       })     
-    ],
-    // plugins: [
-    //   new CleanWebpackPlugin(),
-    //   new CopyPlugin({
-    //     patterns: [
-    //       { from: "./src/service-worker.js", to: "./" },
-    //       { from: "./web.config", to: "./" },
-    //       { from: "./src/static/sample.json", to: "./" }
-    //     ],
-    //   }),
-    //   //  new BundleAnalyzerPlugin({
-    //   //    analyzerMode: "static",
-    //   // })
-    // ],
-    // optimization: {
-    //   splitChunks: {
-    //     cacheGroups: {
-    //       commons: {
-    //         test: /[\\/]node_modules[\\/]/,
-    //         name: 'vendor',
-    //         chunks: 'all',
-    //       },
-    //     },
-    //   },
-    // },
+  ],
+  optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'all',
+          },
+        },
+      },
+    },
   }
