@@ -20,8 +20,9 @@ export default function DayView(props): JSX.Element {
                     <div key={index} className='rows'>
                         {row.rowData.map((cell: DayCell, indx : number) => 
                             <Day
-                                key={indx}
+                                key={cell.index}
                                 cell={cell}
+                                setDate={props.setDate}
                             ></Day>
                         )}
                     </div>

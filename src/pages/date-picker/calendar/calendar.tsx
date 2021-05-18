@@ -117,6 +117,7 @@ const loadViewType = () => {
             return <DayView
                     headers={calendar.data.headers}
                     dayData={calendar.data.dayData}
+                    setDate={props.setDate}
                     ></DayView>
         case ViewType.month:
             return <MonthView
@@ -128,8 +129,7 @@ const loadViewType = () => {
                     onDateChange={onDateChange}
                     ></YearView>      
     }
-}
-    
+}   
 
     return (
         <div>
