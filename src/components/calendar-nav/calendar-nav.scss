@@ -1,24 +1,28 @@
-.toolbar-header{
+.calendar-nav{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 6vw;
-    border-bottom: 1px solid #9c9c9c;
+    border-bottom: 1px solid #c7c7c7;
+    font-size: 1.8rem;
 
     .btn-prev{
-        width : 4vw;       
+        cursor: pointer;
+        width: 1rem;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;       
     }
 
     .date{
-        width: 60%;
+        width: 65%;
         display:flex;
-        justify-content: center; 
+        justify-content: left; 
     }
     .month{
-        font-size: 6vw;
+        cursor: pointer;
         font-weight: bold;
-        padding: 2vw 0vw;        
+        padding: 5px 0px ;        
     }
 
     .month-hide{
@@ -26,11 +30,15 @@
     }
 
     .year{
-        font-size: 6vw;
+        cursor: pointer;
         color: #00a1ff;
-        padding: 2vw 0vw;
+        padding: 5px 0px ;
     }
     .btn-next{
-        width : 4vw;
+        cursor: pointer;
+        width: 1rem;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
     }
 }

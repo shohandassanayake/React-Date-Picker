@@ -1,9 +1,66 @@
-.calendar{
-    background: white;
-    border-radius: 5px;    
- }
- 
- 
- .body{
-     padding-top:3vw;
- }
+.out{
+    width: 3000px;
+    height: 3000px;
+    margin-top: 600px;
+    margin-left: 50%;
+    overflow-y: auto
+}
+
+.date-picker {
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    -webkit-transition: border 400ms ease-out;
+    -moz-transition: border 400ms ease-out;
+    -o-transition: border 400ms ease-out;
+    cursor: default;
+    width: 400px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &:hover{
+        border:1px solid #00a1ff;
+    }    
+
+    .dp-input{
+        border: none;
+        flex: 1;
+        outline: none;
+        cursor: default;
+        padding: 0px 10px 0px 10px;
+        font-size: 1rem;   
+    }
+
+
+    .dp-img{
+        border-left: 1px solid #ddd;
+        padding: 5px;
+        display: flex;
+        background: #ddd;
+    }
+
+    .img{
+        height: 100%;
+        min-height: 30px
+    }  
+}
+
+.date-picker-calendar{
+    position: absolute;
+    z-index: 11;
+}
+
+.calendar-popover{
+    z-index: 10;
+    position: fixed;
+    inset: 0px;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
+}

@@ -48,17 +48,18 @@ export default function NavHeader(props): JSX.Element {
     }
 
     return (
-        <div className='toolbar-header'>
-            <div className='btn-prev' onClick={onPreviousClick}>
-                {/* <FontAwesomeIcon icon="angle-left"></FontAwesomeIcon> */}
-                <BackIcon/>
-            </div> 
+        <div className='calendar-nav'>
+           
             <div className='date'>
                 <div className={`month ${props.viewType== ViewType.year ? 'month-hide' : ''}`}
                     onClick={() => onViewChange(ViewType.month)}>{month}</div>&nbsp;
                 <div className='year' onClick={() => onViewChange(ViewType.year)}>{year}</div>
             </div>
             {/* <div className='year'></div> */}
+            <div className='btn-prev' onClick={onPreviousClick}>
+                {/* <FontAwesomeIcon icon="angle-left"></FontAwesomeIcon> */}
+                <BackIcon/>
+            </div> 
             <div className='btn-next' onClick={onNextClick}>
                 <NextIcon></NextIcon>
                 {/* <FontAwesomeIcon icon="angle-right"></FontAwesomeIcon> */}
