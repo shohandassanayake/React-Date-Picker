@@ -13,10 +13,15 @@ import DatePicker from '../../../shared/models/Date-picker'
 
 import CalendarUtil from '../../../shared/util'
 import {ViewType, DateChangeType} from '../../../shared/enums'
+import { width } from '@material-ui/system';
 
 export default function Calendar(props): JSX.Element {
 
+    console.log(props.width);
+
 console.log('Calendar-Rendered')
+
+
 
 const GenerateDateObj = (date = new Date, dow = 0) => {
     var data = new CalendarData(date,dow);
@@ -49,14 +54,17 @@ const getData = (date = new Date) => {
     });
     //setTimeout(() => {    
         var calendarData = GenerateDateObj(date);
-        calendarData.dayData[1].rowData[2].workingStatus = 'working'
-        calendarData.dayData[1].rowData[4].workingStatus = 'holiday'
-        calendarData.dayData[2].rowData[5].workingStatus = 'absence'
-        calendarData.dayData[2].rowData[3].workingStatus = 'working-absence'
-        calendarData.dayData[3].rowData[6].workingStatus = 'working-holiday'
-        calendarData.dayData[3].rowData[1].workingStatus = 'partial-absence'
-        calendarData.dayData[3].rowData[3].workingStatus = 'partial-holiday' 
-        calendarData.dayData[3].rowData[5].workingStatus = 'working-absence-holiday' 
+    //     calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
+    //     calendarData.dayData[1].rowData[2].dayStatus = 'working'
+    //     calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
+    //     calendarData.dayData[1].rowData[5].dayStatus = 'holiday'
+    //     calendarData.dayData[2].rowData[5].dayStatus = 'absence'
+    //     calendarData.dayData[2].rowData[3].dayStatus = 'working-absence'
+    //     calendarData.dayData[3].rowData[6].dayStatus = 'working-holiday'
+    //     calendarData.dayData[3].rowData[1].dayStatus = 'partial-absence'
+    //     calendarData.dayData[3].rowData[3].dayStatus = 'partial-holiday' 
+    //     calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
+    //    calendarData.dayData[3].rowData[5].dayStatus = 'working-absence-holiday' 
         
         
             setCalendar({
@@ -115,16 +123,19 @@ const loadViewType = () => {
         case ViewType.day:
             default:
             return <DayView
+                    width={props.width}
                     headers={calendar.data.headers}
                     dayData={calendar.data.dayData}
                     setDate={props.setDate}
                     ></DayView>
         case ViewType.month:
             return <MonthView
+                    width={props.width}
                     onDateChange={onDateChange}
                     ></MonthView>
         case ViewType.year:
             return <YearView
+                    width={props.width}
                     year={calendar.data.year}
                     onDateChange={onDateChange}
                     ></YearView>      
@@ -133,8 +144,9 @@ const loadViewType = () => {
 
     return (
         <div>
-            {!calendar.isLoading ?       
-            <div className='calendar'>
+            {!calendar.isLoading ?    
+            
+            <div className='calendar' style={{width:props.width}}>
                 <CalendarNav
                         date={calendar.data.date}
                         month={calendar.data.month}
@@ -145,10 +157,10 @@ const loadViewType = () => {
                 ></CalendarNav>
                 <div className='body'>
                         {loadViewType()}
-                </div>            
-            </div>
+                </div>
+            </div> 
             :
-            <div>Loading...</div>
+            void 0
             }
         </div>
     )    

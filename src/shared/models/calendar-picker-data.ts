@@ -33,5 +33,5 @@ export interface DayCell{
     day : number
     index : number   
     dayType : string 
-    workingStatus : string
+    dayStatus : string
 }
