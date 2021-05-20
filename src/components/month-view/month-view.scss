@@ -2,20 +2,18 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
-    padding-bottom: 3vw;
     animation: 0.3s ease-out 0s 1 scaleOutFromcenter;
+    padding-top: 0.5rem;
   }
   
   .month-cell {
-    flex: 0 0 32%;
+    flex: 0 0 33%;
     display: flex;
     justify-content: center;
     align-items: stretch;
-    padding: 0.5rem;
-    box-sizing: border-box;
-    height: 20vw;
-    font-size: 4vw;
-    padding: 0.5vw;
+    padding: 0.2rem;
+    box-sizing: border-box;    
+    font-size: 1rem;
   }
   
   .month-cell:before {
@@ -33,7 +31,7 @@
     align-items: center;
 
     border: 1px solid #e8e8e8;
-    border-radius: 4vw;
+    border-radius: 20%
   }
 
   @keyframes scaleOutFromcenter {
