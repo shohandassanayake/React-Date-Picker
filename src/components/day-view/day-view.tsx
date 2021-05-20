@@ -10,6 +10,8 @@ import Legend from './legend/legend';
 export default function DayView(props): JSX.Element {
 
     console.log('Day-View-Rendered')
+
+    const width = props.width/7;
     return (
         <div className='day-view'>           
             <DayHeaders
@@ -23,12 +25,13 @@ export default function DayView(props): JSX.Element {
                                 key={cell.index}
                                 cell={cell}
                                 setDate={props.setDate}
+                                height={width}
                             ></Day>
                         )}
                     </div>
                 )}        
             </div>
-            <Legend></Legend>
+            {/* <Legend></Legend> */}
         </div>
     )    
 }

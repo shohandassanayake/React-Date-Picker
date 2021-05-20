@@ -1,20 +1,18 @@
 .day-view{
     overflow: hidden;   
-    animation: 0.3s ease-out 0s 1 scaleOutFromcenter; 
-    
+    // animation: 0.3s ease-out 0s 1 scaleOutFromcenter; 
+    font-size: 0.8rem;
 
     .day-header-row{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-bottom: 2vw;
+        padding : 5px 0px 5px 0px;
 
         .day-header{
-            display : flex;
+            flex: 1;
             justify-content: center;
-            align-items: center;      
-            width: 14vw;
-            font-size: 4vw;
+            align-items: center;   
             text-align: center;       
         }
 
@@ -24,8 +22,7 @@
         }
     }
 
-     .days{        
-         font-size: 4vw;    
+     .days{         
 
         .rows{
             display: flex;
@@ -36,8 +33,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 14vw;
-                width: 14vw; 
                 text-align: center;
                 
             }
@@ -45,9 +40,9 @@
     }
 }
 
-.day-view:active{
-    animation: 0.3s ease-out 0s 1 scaleOutFromcenter;
-}
+// .day-view:active{
+//     animation: 0.3s ease-out 0s 1 scaleOutFromcenter;
+// }
 
 @keyframes leftToRightSlide {
     

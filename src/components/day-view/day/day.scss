@@ -15,12 +15,23 @@
 // }
 
 .cell-inner{
-    height: 76%;
+    height: 80%;
     width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
+
+.cell-inner-text{
+    position: absolute;
+    cursor: pointer;
+}
+
+.current-day{
+    border: 2px solid #00a1ff;
+    border-radius: 50%;
+  }
 
 .working{
     background: #bfd2e4;
@@ -68,7 +79,6 @@
     border-top-color: #f9c206;
     border-bottom-color: #f8536b;
     border-left-color: #bfd2e4;
-    border-width: 5.45vw;
     border-style: solid;
     height: 0px;
     width: 0px;
@@ -89,7 +99,7 @@
         border-top-color: #f9c206;
         border-bottom-color: transparent;
         border-left-color: transparent;
-        border-width: 5.45vw;
+        border-width: inherit;
         border-style: solid;
         /* To ratate */
         -webkit-transform: rotate(30deg);
@@ -108,7 +118,7 @@
         border-top-color: transparent;
         border-bottom-color: transparent;
         border-left-color: #bfd2e4;
-        border-width: 5.45vw;
+        border-width: inherit;
         border-style: solid;
         /* To ratate */
         -webkit-transform: rotate(-30deg);
