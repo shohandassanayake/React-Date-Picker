@@ -37,6 +37,7 @@ const getCalendarDays = (data : CalendarData) => {
     let calStartDay =  new Date(data.calendarStartDate);
     let totalDays = getDateDifferenceInDays(data.calendarEndDate, data.calendarStartDate);
     let noOfRows = totalDays/7;
+    let currentDay = new Date().getDate();
 
     for(let i = 0; i < noOfRows; i++){
         let row : DayRow = {rowNo : i, rowData : []}
@@ -44,13 +45,25 @@ const getCalendarDays = (data : CalendarData) => {
         for(let j = 0; j < 7; j++){
 
             let date =  new Date(calStartDay)
-            row.rowData.push({
+            var rowData = {
                 date :date,
                 day : date.getDate(),
                 index : (i * 7) + j,
-                dayType : (data.startDayOfMonth <= date && date <= data.endDayOfMonth ? 'month-in-day' : 'month-out-day'  ),
-                workingStatus : ''
-                })
+                dayType : '',
+                dayStatus : ''
+                }
+
+                if(data.startDayOfMonth <= date && date <= data.endDayOfMonth ){
+                    rowData.dayType = 'month-in-day'
+                    if(rowData.day == currentDay){
+                        rowData.dayStatus = rowData.dayStatus + ' current-day'
+                    }
+                }
+                else{
+                    rowData.dayType = 'month-out-day' 
+                }                
+
+                row.rowData.push(rowData)
 
             calStartDay.setDate(calStartDay.getDate() + 1);
         }
@@ -61,7 +74,21 @@ const getCalendarDays = (data : CalendarData) => {
 
 const getStartDayOfCalendar = (date : Date, startDayOfWeek : number) => {
     var lessDays = startDayOfWeek == 0 ? 6 : startDayOfWeek - 1;
+    console.log(lessDays);
     return new Date(new Date(date).setDate(date.getDate() - lessDays));
+
+    var d = new Date(date);
+    var day = d.getDay(),
+        diff = d.getDate() - day + 0; // adjust when day is sunday
+    return new Date(d.setDate(diff));
+}
+
+const getDow = (day : number) => {
+    switch(day){
+        case 0: {
+            return 
+        }
+    }
 }
 
 const getEndDayOfCalendar = (date : Date, startDayOfWeek: number) => {
