@@ -73,22 +73,7 @@ const getCalendarDays = (data : CalendarData) => {
 }  
 
 const getStartDayOfCalendar = (date : Date, startDayOfWeek : number) => {
-    var lessDays = startDayOfWeek == 0 ? 6 : startDayOfWeek - 1;
-    console.log(lessDays);
-    return new Date(new Date(date).setDate(date.getDate() - lessDays));
-
-    var d = new Date(date);
-    var day = d.getDay(),
-        diff = d.getDate() - day + 0; // adjust when day is sunday
-    return new Date(d.setDate(diff));
-}
-
-const getDow = (day : number) => {
-    switch(day){
-        case 0: {
-            return 
-        }
-    }
+    return new Date(date.setDate(date.getDate() - date.getDay() + startDayOfWeek));
 }
 
 const getEndDayOfCalendar = (date : Date, startDayOfWeek: number) => {
