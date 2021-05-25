@@ -13,10 +13,11 @@ export default function Day(props): JSX.Element {
     }
     return (       
         <div key={props.cell.index} className={`cell ${props.cell.dayType}`} onClick={onDayClick} style={{height: props.height, width: props.height}}>
-            <div className={`cell-inner ${props.cell.dayStatus}`} style={dayStatusStyle()}>                                    
+            <div className={`cell-inner-1 ${props.cell.dayStatus}`} style={dayStatusStyle()}>
+                <div className={`cell-inner-2`}>
+                    <div  className='cell-inner-text'><span>{props.cell.day}</span></div>
+                </div>
             </div>
-                <div  className='cell-inner-text'><span>{props.cell.day}</span></div>
-            
         </div>                        
     )    
 }

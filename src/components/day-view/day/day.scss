@@ -2,25 +2,29 @@
     opacity: 0.3
 }
 
-// .month-in-day:hover{
-//     height: 76%;
-//     width: 80%;
-    
-//     background: #ccc;
-//     border: 1px solid #ccc;
-//     border-radius: 10vw;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-.cell-inner{
+.cell-inner-1{
     height: 80%;
     width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     align-items: center;
     cursor: pointer;
+}
+
+.cell-inner-2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-inner-2:hover{
+    height: 100%;
+    width: 100%;
+    
+    background:#cccccc91;
+    border-radius: 50%;
 }
 
 .cell-inner-text{
