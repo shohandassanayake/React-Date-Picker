@@ -4,16 +4,17 @@ import NextIcon from '../../assets/images/next.svg';
 
 import './calendar-nav.scss'
 
-import {ViewType, DateChangeType} from '../../shared/enums'
-import CalendarUtil from '../../shared/util'
+import {ViewType, DateChangeType} from '../../shared/enums/enums'
+import CalendarUtil from '../../shared/utils/calendar-util'
+import DateUtil from '../../shared/utils/date-util'
 
 
 export default function NavHeader(props): JSX.Element {
 
     console.log('Toolbar-Header-Rendered')
 
-    let year = props.viewType === ViewType.year ? CalendarUtil.getYearsLabel(props.year) :  props.year;
-    let month = CalendarUtil.getMonthLongName(props.date);
+    let year = props.viewType === ViewType.year ? CalendarUtil.getYearsLabel(props.data.year) :  props.data.year;
+    let month = DateUtil.getMonthLongName(props.data.date);
 
     const onViewChange = (ViewType) => {
         props.onViewChange(ViewType)
@@ -56,11 +57,11 @@ export default function NavHeader(props): JSX.Element {
                 <div className='year' onClick={() => onViewChange(ViewType.year)}>{year}</div>
             </div>
             {/* <div className='year'></div> */}
-            <div className='btn-prev' onClick={onPreviousClick}>
+            <div className='btn-prev' onClick={onPreviousClick}  style={{opacity: props.data.isMinDate ? 0.25 : 1, pointerEvents: props.data.isMinDate ? "none" : "initial" }}>
                 {/* <FontAwesomeIcon icon="angle-left"></FontAwesomeIcon> */}
-                <BackIcon/>
+                <BackIcon/>  
             </div> 
-            <div className='btn-next' onClick={onNextClick}>
+            <div className='btn-next' onClick={onNextClick} style={{opacity: props.data.isMaxDate ? 0.25 : 1, pointerEvents: props.data.isMaxDate ? "none" : "initial" }}>
                 <NextIcon></NextIcon>
                 {/* <FontAwesomeIcon icon="angle-right"></FontAwesomeIcon> */}
             </div>

@@ -11,11 +11,17 @@
         width: 1rem;
         padding: 15px 20px;
         display: flex;
-        align-items: center;       
+        align-items: center;  
+        
+        div[disabled]
+        {
+        pointer-events: none;
+        opacity: 0.7;
+        }
     }
 
     .date{
-        width: 65%;
+        width: 70%;
         display:flex;
         justify-content: left; 
     }
@@ -37,8 +43,10 @@
     .btn-next{
         cursor: pointer;
         width: 1rem;
-        padding: 15px 20px;
+        padding: 20px 10px 20px 15px;
         display: flex;
         align-items: center;
     }
+
+    
 }
