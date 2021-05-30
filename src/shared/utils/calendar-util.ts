@@ -1,4 +1,4 @@
-import CalendarData, { DayRow } from '../models/calendar-picker-data';
+import { Calendar, DayRow } from '../models/calendar-data';
 import Month from '../models/month';
 import Year from '../models/year';
 import DateUtil from './date-util'
@@ -41,7 +41,7 @@ const getYearsLabel = (year) => {
     return startYear + ' - ' + endYear;
 }
 
-const getCalendarDays = (data : CalendarData) => {
+const getCalendarDays = (data : Calendar) => {
     let calendarRows : DayRow[] = []
     let calStartDay =  new Date(data.calendarStartDate);
     let totalDays = DateUtil.getDateDifferenceInDays(data.calendarEndDate, data.calendarStartDate);

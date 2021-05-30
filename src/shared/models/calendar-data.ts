@@ -1,6 +1,12 @@
-import { ViewType } from '../enums'
+import { ViewType } from '../enums/enums'
+import { width } from '@material-ui/system';
 
-export default class CalendarPicker{
+export default class CalendarData{
+    isLoading : boolean;
+    data: Calendar;
+}
+
+export class Calendar{
     date : Date
     month: string
     year: string
@@ -12,9 +18,13 @@ export default class CalendarPicker{
     monthData : string[]
     yearData : any[]
     headers : any[]
-
+    minDate : Date
+    maxDate : Date
     calendarStartDate : Date
     calendarEndDate : Date
+    width:number;
+    isMinDate: boolean;
+    isMaxDate: boolean;
 
     constructor(date : Date = new Date(), dow : number = 0){
         this.date = date;  
