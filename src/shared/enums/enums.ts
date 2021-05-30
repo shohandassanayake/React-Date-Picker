@@ -15,3 +15,13 @@ export enum DateChangeType {
     month,
     year
 }
+
+export enum Picker {
+    day,
+    month,
+    year,
+    week,
+    rangeDay,
+    rangeMonth,
+    rangeYear
+}
