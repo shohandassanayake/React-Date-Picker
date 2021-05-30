@@ -15,6 +15,16 @@ export default function NavHeader(props): JSX.Element {
 
     let year = props.viewType === ViewType.year ? CalendarUtil.getYearsLabel(props.data.year) :  props.data.year;
     let month = DateUtil.getMonthLongName(props.data.date);
+    let nextClass = '';
+    let backClass = '';
+
+    if(props.data.minDate && DateUtil.getStartDayOfMonth(props.data.date) <= props.data.minDate ){
+        backClass = 'disable';
+    }
+
+    if(props.data.maxDate && DateUtil.getEndDayOfMonth(props.data.date) >= props.data.maxxDate ){
+        nextClass = 'disable';
+    }
 
     const onViewChange = (ViewType) => {
         props.onViewChange(ViewType)
@@ -57,11 +67,11 @@ export default function NavHeader(props): JSX.Element {
                 <div className='year' onClick={() => onViewChange(ViewType.year)}>{year}</div>
             </div>
             {/* <div className='year'></div> */}
-            <div className='btn-prev' onClick={onPreviousClick}  style={{opacity: props.data.isMinDate ? 0.25 : 1, pointerEvents: props.data.isMinDate ? "none" : "initial" }}>
+            <div className={`btn-prev ` + backClass} onClick={onPreviousClick}  style={{opacity: props.data.isMinDate ? 0.25 : 1, pointerEvents: props.data.isMinDate ? "none" : "initial" }}>
                 {/* <FontAwesomeIcon icon="angle-left"></FontAwesomeIcon> */}
                 <BackIcon/>  
             </div> 
-            <div className='btn-next' onClick={onNextClick} style={{opacity: props.data.isMaxDate ? 0.25 : 1, pointerEvents: props.data.isMaxDate ? "none" : "initial" }}>
+            <div className={`btn-next ` + backClass} onClick={onNextClick} style={{opacity: props.data.isMaxDate ? 0.25 : 1, pointerEvents: props.data.isMaxDate ? "none" : "initial" }}>
                 <NextIcon></NextIcon>
                 {/* <FontAwesomeIcon icon="angle-right"></FontAwesomeIcon> */}
             </div>
