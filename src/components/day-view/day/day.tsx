@@ -1,11 +1,12 @@
 import React from 'react';
 
 import './day.scss'
+import {DateChangeType} from '../../../shared/enums/enums'
 
 export default function Day(props): JSX.Element {
     const onDayClick = () =>{
         props.cell.date.setDate(props.cell.day);
-        props.setDate(props.cell.date)
+        props.onDateChange(DateChangeType.day, props.cell.date)
     }
 
     const dayStatusStyle= () => {
