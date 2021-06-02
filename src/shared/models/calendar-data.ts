@@ -1,5 +1,6 @@
 import { ViewType } from '../enums/enums'
 import { width } from '@material-ui/system';
+import Year from './year';
 
 export default class CalendarData{
     isLoading : boolean;
@@ -16,7 +17,7 @@ export class Calendar{
     endDayOfMonth : Date
     dayData : DayRow[]
     monthData : string[]
-    yearData : any[]
+    yearData : Year[]
     headers : any[]
     minDate : Date
     maxDate : Date
