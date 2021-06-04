@@ -17,7 +17,6 @@ export default function NavHeader(props): JSX.Element {
     let month = DateUtil.getMonthLongName(props.data.date);
     let nextClass = '';
     let backClass = '';
-
     
     if(props.data.minDate){
         switch(props.viewType){
