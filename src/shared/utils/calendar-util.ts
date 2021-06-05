@@ -81,9 +81,7 @@ const getCalendarDays = (data : Calendar) => {
         calendarRows.push(row);
     }
     return calendarRows;
-}  
-
-
+} 
 
 export default {
     getYearsForCalendar,
