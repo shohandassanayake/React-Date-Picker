@@ -9,12 +9,10 @@ import YearView from '../../../components/year-view/year-view';
 
 
 import CalendarData, {Calendar} from '../../../shared/models/calendar-data'
-import DatePicker from '../../../shared/models/date-picker-data'
 
 import CalendarUtil from '../../../shared/utils/calendar-util'
 import DateUtil from '../../../shared/utils/date-util'
-import {ViewType, DateChangeType} from '../../../shared/enums/enums'
-import { width } from '@material-ui/system';
+import {ViewType, DateChangeType, Picker} from '../../../shared/enums/enums'
 
 export default function CalendarComp(props): JSX.Element {
 
@@ -36,10 +34,13 @@ const GenerateDateObj = (date = new Date, dow = 0) => {
     data.headers = CalendarUtil.getHeadersForCalendar(dow);
     data.isMinDate = data.minDate && data.minDate >= data.startDayOfMonth;
     data.isMaxDate = data.maxDate && data.maxDate <= data.endDayOfMonth;
+    data.yearData = CalendarUtil.getYearsForCalendar(data.year);
+
     return data;
 }
 
-const [viewType, setViewType] = useState<ViewType>(ViewType.day); 
+
+const [viewType, setViewType] = useState<ViewType>(getCalendarViewType()); 
 const [calendar, setCalendar] = useState<CalendarData>({
     isLoading : true,
     data : null
@@ -66,7 +67,7 @@ const loadCalendarPicker = (date = new Date) => {
         calendarData.dayData[3].rowData[1].dayStatus = 'partial-absence'
         calendarData.dayData[3].rowData[3].dayStatus = 'partial-holiday' 
         calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
-       calendarData.dayData[3].rowData[5].dayStatus = 'working-absence-holiday' 
+        calendarData.dayData[3].rowData[5].dayStatus = 'working-absence-holiday' 
         
         
             setCalendar({
@@ -98,14 +99,15 @@ const onDateChange = (type, val : any = '') =>{
         }
         case DateChangeType.month :  
         {
-            props.onDateChange(new Date(calendar.data.date.setMonth(parseInt(val))), false);
-            setViewType(ViewType.day)
+            
+            props.onDateChange(new Date(calendar.data.date.setMonth(parseInt(val))), props.picker === Picker.month ? true : false);
+            setViewTypeOnCalendarDayChange();
             break;
         }
         case DateChangeType.year :
         {
-            props.onDateChange(new Date(calendar.data.date.setFullYear(parseInt(val))), false);                
-            setViewType(ViewType.day)
+            props.onDateChange(new Date(calendar.data.date.setFullYear(parseInt(val))), props.picker === Picker.year ? true : false);                
+            setViewTypeOnCalendarDayChange();
             break;
         }
         case DateChangeType.prevMonth:
@@ -116,6 +118,7 @@ const onDateChange = (type, val : any = '') =>{
             const newStore : CalendarData = {...calendar};
             newStore.data.date = new Date(calendar.data.date.setFullYear(parseInt(val)))
             newStore.data.year = DateUtil.getYear(newStore.data.date)
+            newStore.data.yearData = CalendarUtil.getYearsForCalendar(newStore.data.year);
             setCalendar(newStore);
             break;
         } 
@@ -125,6 +128,31 @@ const onDateChange = (type, val : any = '') =>{
 const onViewChange = (viewType) => {        
     setViewType(viewType);
 }
+
+const setViewTypeOnCalendarDayChange = () => {
+    setViewType(getCalendarViewType())
+}
+
+function getCalendarViewType() {
+    switch(props.picker){
+        case Picker.day: 
+        case Picker.week:
+        default: 
+            return ViewType.day;
+        case Picker.month: 
+            return ViewType.month;
+        case Picker.year: 
+            return ViewType.year;
+    }
+}
+
+// loadPickerType = (pickerType) => {
+//     switch(pickerType){
+//         case Picker.day: {
+//             return  picker
+//         }
+//     }
+// }
 
 const loadViewType = () => {
     switch(viewType) {
@@ -157,6 +185,7 @@ const loadViewType = () => {
                     viewType={viewType}
                     onViewChange={onViewChange}
                     onDateChange={onDateChange}
+                    picker={props.picker}
                 ></CalendarNav>
                 <div className='body'>
                         {loadViewType()}
