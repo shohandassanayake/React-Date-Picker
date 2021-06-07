@@ -1,5 +1,4 @@
 import { ViewType } from '../enums/enums'
-import { width } from '@material-ui/system';
 import Year from './year';
 
 export default class CalendarData{

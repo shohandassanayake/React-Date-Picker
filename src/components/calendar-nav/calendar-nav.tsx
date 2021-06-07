@@ -77,11 +77,11 @@ export default function NavHeader(props): JSX.Element {
             props.onDateChange(DateChangeType.prevDay)
         }
         else if(props.viewType == ViewType.month){
-            let yr = parseInt(props.year) - 1;
+            let yr = parseInt(props.data.year) - 1;
             props.onDateChange(DateChangeType.prevMonth, yr)
         }
         else{            
-            let yr = parseInt(props.year) - (parseInt(props.year) % 10) - 2;
+            let yr = parseInt(props.data.year) - (parseInt(props.data.year) % 10) - 2;
             props.onDateChange(DateChangeType.prevYear, yr)
         }
     }    
@@ -91,11 +91,11 @@ export default function NavHeader(props): JSX.Element {
             props.onDateChange(DateChangeType.nextDay)
         }
         else if(props.viewType == ViewType.month){
-            let yr = parseInt(props.year) + 1;
+            let yr = parseInt(props.data.year) + 1;
             props.onDateChange(DateChangeType.nextMonth, yr)
         }
         else{         
-            let yr = parseInt(props.year) - (parseInt(props.year) % 10) + 12;
+            let yr = parseInt(props.data.year) - (parseInt(props.data.year) % 10) + 12;
             props.onDateChange(DateChangeType.nextYear, yr)
         }
     }
