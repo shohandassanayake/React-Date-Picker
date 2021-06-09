@@ -4,20 +4,10 @@ import './date-picker.scss'
 import Calendar from './calendar/calendar'
 
 import CalendarIcon from '../../assets/images/calendar.svg'
-import CalendarUtil from '../../shared/utils/calendar-util'
 import DateUtil from '../../shared/utils/date-util'
-
-import DateFnsUtils from '@date-io/date-fns';
-
-
-//import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import { width } from '@material-ui/system';
-import { NONAME } from 'dns';
 
 import DatePickerData from '../../shared/models/date-picker-data'
 import { Picker } from '../../shared/enums/enums';
-
-
 
 export default function DatePicker(props): JSX.Element {
     console.log('My-Calendar-Rendered')
@@ -98,7 +88,8 @@ export default function DatePicker(props): JSX.Element {
     const onDateChange = (date, isReload) => {
         if(isReload){
             if(props.onDateChange){
-            props.onChange(date)}
+                props.onChange(date)
+            }
             hideCalendar();
         }
         setDatePicker((data) => ({
@@ -131,9 +122,9 @@ export default function DatePicker(props): JSX.Element {
         <div className='out'>                         
             <div className="date-picker" ref={inputRef} onClick={() => setShowCaledar(true)}>   
                 <input className='dp-input' value={setName()} readOnly={true}  /> 
-                <span className='dp-img'>
-                    <CalendarIcon className='img'></CalendarIcon>
-                </span>
+                    <span className='dp-img'>
+                        <CalendarIcon className='img'></CalendarIcon>
+                    </span>
             </div>
             {showCalendar ? 
 
