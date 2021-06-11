@@ -1,16 +1,17 @@
 {
-  "name": "React-Date-Picker",
+  "name": "BoxyUI-React-Date-Picker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "simple React Date Picker",
+  "main": "index.tsx",
   "scripts": {
     "build": "webpack --config webpack.dev.js --watch",
+    "build-prod": "webpack --config webpack.prod.js",
     "local": "webpack serve --inline --config webpack.dev.js",
     "prod": "webpack serve --config webpack.prod.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Shohan Dassanayake",
+  "license": "MIT",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
