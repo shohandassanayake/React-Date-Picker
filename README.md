@@ -40,8 +40,6 @@ export default function Example() {
     <DatePicker
         width={400}
         setDate={new Date()}
-        onChange={void 0}
-        startDayOfWeek={0}
         minDate={new Date('2018-02-05')}
         maxDate={new Date('2021-10-25')}
         picker={'month'}
