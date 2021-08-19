@@ -17,7 +17,7 @@ npm i aqua-ui-react-date-picker
 - Calendar Min/Max
 - Start day of week (sun = 0, 1, 2, 3, 4, 5, 6)
 
-## Date Picker Props
+### Date Picker Props
 
 - picker : set the intital calendar picker type. Default set to day picker('month', 'year')
 - width : set width
@@ -28,7 +28,7 @@ npm i aqua-ui-react-date-picker
 - maxDate : set maximum Date of the calendar
 
 
-##Example
+### Example
 
 ```
 import React from 'react';
