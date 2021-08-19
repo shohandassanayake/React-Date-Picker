@@ -1,18 +1,28 @@
 {
-  "name": "BoxyUI-React-Date-Picker",
-  "version": "1.0.0",
-  "description": "simple React Date Picker",
-  "main": "index.tsx",
+  "name": "aqua-ui-react-date-picker",
+  "version": "1.0.2",
+  "description": "Simple react date picker",
+  "main": "./dist/aqua-ui-react-date-picker.js",
   "scripts": {
     "build": "webpack --config webpack.dev.js --watch",
     "build-prod": "webpack --config webpack.prod.js",
+    "build-publish": "webpack --config webpack.publish.js",
     "local": "webpack serve --inline --config webpack.dev.js",
     "prod": "webpack serve --config webpack.prod.js"
   },
-  "keywords": [],
+  "keywords": [
+    "aqua-ui",
+    "react",
+    "date picker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shohandassanayake/React-Date-Picker"
+  },
   "author": "Shohan Dassanayake",
   "license": "MIT",
   "dependencies": {
+    "aqua-ui-react-date-picker": "^1.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -24,6 +34,7 @@
     "@svgr/webpack": "^5.5.0",
     "@types/react": "^17.0.5",
     "babel-loader": "^8.2.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^3.0.0",
     "file-loader": "^6.2.0",
