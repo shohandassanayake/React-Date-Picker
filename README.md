@@ -19,11 +19,11 @@ npm i aqua-ui-react-date-picker
 
 ## Date Picker Props
 
-- picker : set the intital calendar picker type. default set to day picker('month', 'year')
+- picker : set the intital calendar picker type. Default set to day picker('month', 'year')
 - width : set width
 - setDate : set initial Date
 - onChange : returns the date selected
-- startDayOfWeek : set start day of week
+- startDayOfWeek : set start day of week. Default value is '0'
 - minDate : set minimum Date of the calendar
 - maxDate : set maximum Date of the calendar
 
