@@ -57,17 +57,17 @@ const loadCalendarPicker = (date = new Date) => {
     });
     //setTimeout(() => {    
         var calendarData = GenerateDateObj(date);
-        calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
-        calendarData.dayData[1].rowData[2].dayStatus = 'working'
-        calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
-        calendarData.dayData[1].rowData[5].dayStatus = 'holiday'
-        calendarData.dayData[2].rowData[5].dayStatus = 'absence'
-        calendarData.dayData[2].rowData[3].dayStatus = 'working-absence'
-        calendarData.dayData[3].rowData[6].dayStatus = 'working-holiday'
-        calendarData.dayData[3].rowData[1].dayStatus = 'partial-absence'
-        calendarData.dayData[3].rowData[3].dayStatus = 'partial-holiday' 
-        calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
-        calendarData.dayData[3].rowData[5].dayStatus = 'working-absence-holiday' 
+        // calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
+        // calendarData.dayData[1].rowData[2].dayStatus = 'working'
+        // calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
+        // calendarData.dayData[1].rowData[5].dayStatus = 'holiday'
+        // calendarData.dayData[2].rowData[5].dayStatus = 'absence'
+        // calendarData.dayData[2].rowData[3].dayStatus = 'working-absence'
+        // calendarData.dayData[3].rowData[6].dayStatus = 'working-holiday'
+        // calendarData.dayData[3].rowData[1].dayStatus = 'partial-absence'
+        // calendarData.dayData[3].rowData[3].dayStatus = 'partial-holiday' 
+        // calendarData.dayData[0].rowData[6].dayStatus = 'holiday'
+        // calendarData.dayData[3].rowData[5].dayStatus = 'working-absence-holiday' 
         
         
             setCalendar({
