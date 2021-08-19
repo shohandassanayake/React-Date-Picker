@@ -11,7 +11,8 @@ npm i aqua-ui-react-date-picker
 
 ### Features
 
-**Month Selector**
-**Year Selector**
-**Calendar Min/Max**
-**Start day of week (sun = 0, 1, 2, 3, 4, 5, 6)**
+- Day Selector
+- Month Selector
+- Year Selector
+- Calendar Min/Max
+- Start day of week (sun = 0, 1, 2, 3, 4, 5, 6)
